@@ -19,6 +19,7 @@
         <module>SpringBoot-Mybatis-PageHelper</module>
         <module>springbootmysql</module>
         <module>springbootstart</module>
+        <module>spring_boot_aop</module>
     </modules>
     <packaging>pom</packaging>
 
