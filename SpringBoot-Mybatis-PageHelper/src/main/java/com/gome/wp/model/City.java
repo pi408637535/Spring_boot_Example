@@ -2,13 +2,8 @@ package com.gome.wp.model;
 
 import java.io.Serializable;
 
-/**
- * @author wangpeng24
- * @date 2016/08/26 16:17
- * @Copyright(c) gome inc Gome Co.,LTD
- */
 public class City implements Serializable{
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -16,11 +11,11 @@ public class City implements Serializable{
 
     private String country;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,14 +43,14 @@ public class City implements Serializable{
         this.country = country == null ? null : country.trim();
     }
 
+    public City()
+    {
+    }
 
-    @Override
-    public String toString() {
-        return "City{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                '}';
+    public City(String name, String state, String country)
+    {
+        this.name = name;
+        this.state = state;
+        this.country = country;
     }
 }

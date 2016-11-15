@@ -3,6 +3,7 @@ package com.gome.wp.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
+import com.gome.wp.cache.MybatisRedisCache;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -13,6 +14,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -28,6 +30,8 @@ import java.util.Properties;
 public class MybatisConfig implements TransactionManagementConfigurer{
 	private static final Logger log=LoggerFactory.getLogger(MybatisConfig.class);
 
+    //private static String MYBATIS_CONFIG = "classpath:mybatis/mybatis-config.xml";
+    private static String MYBATIS_CONFIG = "SqlMapConfig.xml";
     @Bean
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
@@ -39,8 +43,12 @@ public class MybatisConfig implements TransactionManagementConfigurer{
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        /** 设置mybatis configuration 扫描路径 */
+       // sqlSessionFactoryBean.setConfigLocation(new ClassPathResource(MYBATIS_CONFIG));
+        bean.setConfigLocation(new ClassPathResource(MYBATIS_CONFIG));
         bean.setDataSource(dataSource());
         bean.setTypeAliasesPackage("com.gome.wp.model");
+
 
         //分页插件
         PageHelper pageHelper = new PageHelper();

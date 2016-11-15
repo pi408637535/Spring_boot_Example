@@ -23,16 +23,15 @@ public class CityServiceImpl implements CityService {
     private CityMapper cityMapper;
 
     @Override
-    public City getCityByParamyKey(Integer id) {
+    public City getCityByParamyKey(Long id) {
         if(null==id){
             return null;
         }
         CityExample cityExample = new CityExample();
         CityExample.Criteria criteria = cityExample.createCriteria();
-        criteria.andIdEqualTo(id);
-        List<City> list =  cityMapper.selectByExample(cityExample);
+        City city = cityMapper.selectByPrimaryKey(id);
 
-        return list.get(0);
+        return city;
     }
 
     @Override
@@ -42,5 +41,12 @@ public class CityServiceImpl implements CityService {
         List<City> cities = cityMapper.selectByExample(cityExample);
         PageInfo<City> pageInfo = new PageInfo<>(cities);
         return null;
+    }
+
+    @Override
+    public Long createCity(City city)
+    {
+        cityMapper.insert(city);
+        return city.getId();
     }
 }

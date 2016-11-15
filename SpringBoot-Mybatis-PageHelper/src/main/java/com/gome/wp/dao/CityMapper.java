@@ -2,30 +2,23 @@ package com.gome.wp.dao;
 
 import com.gome.wp.model.City;
 import com.gome.wp.model.CityExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
-/**
- * @author wangpeng24
- * @date 2016/08/26 16:17
- * @Copyright(c) gome inc Gome Co.,LTD
- */
-public interface CityMapper{
-
+public interface CityMapper {
     int countByExample(CityExample example);
 
     int deleteByExample(CityExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
-    int insert(City record);
+    Long insert(City record);
 
     int insertSelective(City record);
 
     List<City> selectByExample(CityExample example);
 
-    City selectByPrimaryKey(Integer id);
+    City selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") City record, @Param("example") CityExample example);
 

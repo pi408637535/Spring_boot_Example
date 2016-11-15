@@ -10,7 +10,8 @@ import java.util.List;
  * @Copyright(c) gome inc Gome Co.,LTD
  */
 public interface CityService {
-    City getCityByParamyKey(Integer id);
+    City getCityByParamyKey(Long id);
 
     List<City> getCityPage(City city);
+    Long createCity(City city);
 }
