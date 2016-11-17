@@ -1,9 +1,6 @@
-package com.it.recursion.bean;
+package com.it.recursion.construct.bean;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * Created by wode4 on 2016/11/17.
@@ -17,7 +14,7 @@ public class CircleB
     public CircleB()
     {
     }
-    @Autowired
+//    @Autowired
     public CircleB(CircleC circleC)
     {
         this.circleC = circleC;
