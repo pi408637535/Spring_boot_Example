@@ -1,20 +1,21 @@
 package com.log;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Created by wode4 on 2016/11/7.
  */
+@Slf4j
+@SpringBootApplication
 public class HelloWorld
 {
-    public static Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
     public static void main(String args[]) {
 
-        logger.debug("日志输出测试 Debug");
-        logger.trace("日志输出测试 Trace");
-        logger.info("日志输出测试 Info");
+        log.debug("日志输出测试 Debug");
+        log.trace("日志输出测试 Trace");
+        log.info("日志输出测试 Info");
         System.out.println("Hello World!");
     }
 }
