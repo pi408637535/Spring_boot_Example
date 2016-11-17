@@ -1,14 +1,18 @@
-package com.it.recursion.construct.bean;
+package com.it.recursion.scope.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
  * Created by wode4 on 2016/11/17.
  */
-@Component
+@Component("scopeCircleB")
+@Scope("prototype")
 public class CircleB
 {
-
+    @Autowired
     private CircleC circleC;
 
     public CircleB()
@@ -20,7 +24,8 @@ public class CircleB
         this.circleC = circleC;
     }
 
-    public void setCircleC(CircleC circleC)
+    @Autowired
+    public void setCircleC(@Qualifier("scopeCircleC") CircleC circleC)
     {
         this.circleC = circleC;
     }
