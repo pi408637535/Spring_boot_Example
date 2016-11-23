@@ -20,9 +20,13 @@ public class EslServiceImpl  implements EslService {
     @Override
     public Cliente findCliente(String id)
     {
-
         Cliente cliente = clienteDao.findOne(id);
         LOG.info(" get cliente by id {} is {}", id, cliente);
         return cliente;
+    }
+
+    @Override
+    public void saveCliente(Cliente cliente) {
+        clienteDao.save(cliente);
     }
 }
