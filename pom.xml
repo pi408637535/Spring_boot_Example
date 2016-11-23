@@ -21,6 +21,7 @@
         <module>springbootstart</module>
         <module>spring_boot_aop</module>
         <module>Spring_boot_slf4j</module>
+        <module>spring_recursion</module>
     </modules>
     <packaging>pom</packaging>
 
