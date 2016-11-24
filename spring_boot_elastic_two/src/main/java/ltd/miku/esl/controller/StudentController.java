@@ -24,5 +24,11 @@ public class StudentController {
         student.setAge(10);
         student.setName("我在清华上学");
         student.setId(id);
+        studentService.saveStudent(student);
+    }
+
+    @RequestMapping("/search")
+    public void search(){
+        studentService.searchStudentByName("清华");
     }
 }

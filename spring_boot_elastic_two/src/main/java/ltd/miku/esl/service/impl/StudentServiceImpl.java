@@ -3,6 +3,7 @@ package ltd.miku.esl.service.impl;
 import ltd.miku.esl.dao.StudentRepository;
 import ltd.miku.esl.model.Student;
 import ltd.miku.esl.service.StudentService;
+import org.elasticsearch.index.query.QueryStringQueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,15 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void saveStudent(Student student) {
         studentDao.save(student);
+    }
+
+    @Override
+    public Student searchStudentByName(String name) {
+        //content为要查询的数据
+        QueryStringQueryBuilder queryBuilder = new QueryStringQueryBuilder("清华");
+
+       // queryBuilder.analyzer("ik").field("name");
+        Iterable<Student> students = studentDao.search(queryBuilder);
+        return null;
     }
 }
