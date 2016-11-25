@@ -25,9 +25,16 @@ public class StudentServiceImpl implements StudentService {
     public Student searchStudentByName(String name) {
         //content为要查询的数据
         QueryStringQueryBuilder queryBuilder = new QueryStringQueryBuilder("清华");
-
+        studentDao.deleteAll();
        // queryBuilder.analyzer("ik").field("name");
         Iterable<Student> students = studentDao.search(queryBuilder);
         return null;
     }
+
+    @Override
+    public void deleteAllStudent() {
+        studentDao.deleteAll();
+    }
+
+
 }

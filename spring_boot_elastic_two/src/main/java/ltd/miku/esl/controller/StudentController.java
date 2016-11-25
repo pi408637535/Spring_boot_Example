@@ -31,4 +31,9 @@ public class StudentController {
     public void search(){
         studentService.searchStudentByName("清华");
     }
+
+    @RequestMapping("/deleteAll")
+    public void deleteAll(){
+        studentService.deleteAllStudent();
+    }
 }

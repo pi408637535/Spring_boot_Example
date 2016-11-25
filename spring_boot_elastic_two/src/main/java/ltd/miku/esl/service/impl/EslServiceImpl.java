@@ -26,7 +26,18 @@ public class EslServiceImpl  implements EslService {
     }
 
     @Override
-    public void saveCliente(Cliente cliente) {
+    public Cliente saveCliente(Cliente cliente) {
         clienteDao.save(cliente);
+        return  cliente;
+    }
+
+    @Override
+    public boolean existsClienteById(String id) {
+        return clienteDao.exists(id);
+    }
+
+    @Override
+    public void deleteById(String id) {
+        clienteDao.delete(id);
     }
 }

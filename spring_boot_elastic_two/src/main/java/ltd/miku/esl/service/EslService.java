@@ -7,6 +7,7 @@ import ltd.miku.esl.model.Cliente;
  */
 public interface EslService {
     Cliente findCliente(String id);
-    void saveCliente(Cliente cliente);
-
+    Cliente saveCliente(Cliente cliente);
+    boolean existsClienteById(String id);
+    void deleteById(String id);
 }

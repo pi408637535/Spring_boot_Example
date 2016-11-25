@@ -9,4 +9,5 @@ import ltd.miku.esl.model.Student;
 public interface StudentService {
     void saveStudent(Student student);
     Student searchStudentByName(String name);
+    void deleteAllStudent();
 }
