@@ -1,0 +1,11 @@
+my:
+  servers:
+     - dev.bar.com   #必须是这个格式: - 是必须要加的  利用注解 ConfigurationProperties
+     - foo.bar.com
+     - jiaobuchong.com
+  webserver:
+    port: 80
+    threadPool:
+        maxThreads: 100
+        minThreads: 8
+        idleTimeout: 60000
