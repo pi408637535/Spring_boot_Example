@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -24,15 +25,25 @@ public class UserSecurityInterceptor implements HandlerInterceptor  {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		String version =  request.getHeader("version");
-
-		/*String updateUrl = "https://api3.stockemotion.com/stock/api/alipyAppSynReturn";
-		URL url = null;
-		URI uri = null;
-		try {
-			url = new URL(updateUrl);
-			uri = new URI(url.getProtocol(), url.getHost() + ":" + url.getPort(),url.getPath(), url.getQuery(), null);
-		} catch (Exception e) {
-			e.printStackTrace();
+		if(version == "70"){
+			Map <String,String[]> params = request.getParameterMap();
+			StringBuffer sb = new StringBuffer();
+			BufferedReader bufferedReader = null;
+			bufferedReader =  request.getReader() ;
+			char[] charBuffer = new char[512];
+			int bytesRead;
+			while ( (bytesRead = bufferedReader.read(charBuffer)) != -1 ) {
+				sb.append(charBuffer, 0, bytesRead);
+			}
+			String updateUrl = "http://localhost:8004/wd/forum/topic/publishTopic";
+			URL url = null;
+			URI uri = null;
+			try {
+				url = new URL(updateUrl);
+				uri = new URI(url.getProtocol(), url.getHost() + ":" + url.getPort(),url.getPath(), url.getQuery(), null);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		response.setContentType("text/html");
@@ -45,7 +56,7 @@ public class UserSecurityInterceptor implements HandlerInterceptor  {
 		builder.append("Version:" + version);
 		builder.append("</script>");
 		out.print(builder.toString());
-		out.close();*/
+		out.close();
 		return true;
 	}
 

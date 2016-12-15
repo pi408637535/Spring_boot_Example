@@ -1,6 +1,5 @@
-package controller;
+package inspect.controller;
 
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

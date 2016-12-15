@@ -1,4 +1,4 @@
-package config;
+package inspect.config;
 
 import inspect.version.UserSecurityInterceptor;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Created by pigaunghua on 2016/12/13.
  */
-//@Configuration
+@Configuration
 public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
     // 多个拦截器组成一个拦截器链
     // addPathPatterns 用于添加拦截规则

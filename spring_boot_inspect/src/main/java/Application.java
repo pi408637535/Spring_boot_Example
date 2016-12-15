@@ -1,20 +1,17 @@
 import inspect.version.UserSecurityInterceptor;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * Created by piguanghua on 2016/10/16.
  * 访问的URL：localhost:8080/
  */
 @SpringBootApplication
-@ComponentScan({"controller"})
+@ComponentScan({"inspect"})
 public class Application {
     @RequestMapping("/")
     @ResponseBody
