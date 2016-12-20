@@ -1,0 +1,43 @@
+# IDENTITY (ContextIdApplicationContextInitializer)
+
+
+#Server
+server:
+  port: 8080
+
+spring:
+    datasource:
+#        url: jdbc:sqlserver://localhost:1433;DatabaseName=test
+#        username: sa
+#        password: 123456
+#        # 使用druid数据源
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        url: jdbc:mysql://127.0.0.1:3306/demo-schema?useUnicode=true&amp;characterEncoding=utf-8
+        username: root
+        password: root
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+        dbcp:
+          default-auto-commit: false
+
+
+
+
+
+#LOG
+#logging.config=classpath:log4j2.xml
