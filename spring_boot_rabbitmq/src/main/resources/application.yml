@@ -1,0 +1,7 @@
+spring:
+  rabbitmq:
+    host: 118.244.212.185
+    port: 5672
+    username: wode
+    password: wode
+    virtual-host: /wode
