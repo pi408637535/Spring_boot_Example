@@ -23,6 +23,12 @@
         <module>Spring_boot_slf4j</module>
         <module>spring_recursion</module>
         <module>spring_boot_inspect</module>
+        <module>spring_boot_timer</module>
+        <module>spring_boot_timer</module>
+        <module>spring_boot_timer_quartz</module>
+        <module>spring_rabbit_demo</module>
+        <module>spring_boot_rabbitmq</module>
+        <module>spring_boot_rabbitmq_exchange</module>
     </modules>
     <packaging>pom</packaging>
 
