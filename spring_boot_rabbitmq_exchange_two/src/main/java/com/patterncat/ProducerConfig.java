@@ -34,6 +34,13 @@ public class ProducerConfig {
         return queue;
     }
 
+    @Bean
+    Queue queueMessage(RabbitAdmin rabbitAdmin) {
+        Queue queueMessage = new Queue("queue.message", true);
+        rabbitAdmin.declareQueue(queueMessage);
+        return queueMessage;
+    }
+
 
     @Bean
     TopicExchange exchange(RabbitAdmin rabbitAdmin) {
@@ -52,6 +59,12 @@ public class ProducerConfig {
     @Bean
     Binding bindingExchangeBar(Queue queueBar, TopicExchange exchange,RabbitAdmin rabbitAdmin) {
         Binding binding = BindingBuilder.bind(queueBar).to(exchange).with("#.bar");
+        rabbitAdmin.declareBinding(binding);
+        return binding;
+    }
+    @Bean
+    Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange,RabbitAdmin rabbitAdmin) {
+        Binding binding = BindingBuilder.bind(queueMessage).to(exchange).with("#.message");
         rabbitAdmin.declareBinding(binding);
         return binding;
     }
