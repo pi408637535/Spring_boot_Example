@@ -24,8 +24,14 @@ public class SenderService {
         this.rabbitMessagingTemplate.convertAndSend("exchange", "queue.foo", new Foo("foo000"));
     }
 
-    @Scheduled(fixedRate = 3000)
+    @Scheduled(fixedRate = 2000)
     public void sendBar2Rabbitmq(){
         this.rabbitMessagingTemplate.convertAndSend("exchange", "queue.bar", new Bar(100000));
+    }
+
+    @Scheduled(fixedRate = 3000)
+    public void sendMessageRabbitmq(){
+        Message message = new Message(10L, 10L, "sender", "content", 0, 0, 110L, 100L);
+        this.rabbitMessagingTemplate.convertAndSend("exchange", "queue.message", message);
     }
 }

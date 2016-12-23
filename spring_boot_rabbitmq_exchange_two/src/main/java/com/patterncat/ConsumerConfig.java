@@ -1,6 +1,6 @@
 package com.patterncat;
 
-import com.patterncat.receiver.ReceiverServiceFoo;
+
 import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
@@ -20,8 +20,8 @@ import org.springframework.messaging.handler.annotation.support.DefaultMessageHa
 @EnableRabbit
 public class ConsumerConfig implements RabbitListenerConfigurer {
 
-    @Autowired
-    ReceiverServiceFoo receiverService;
+/*    @Autowired
+    ReceiverServiceFoo receiverService;*/
 
     @Bean
     public DefaultMessageHandlerMethodFactory myHandlerMethodFactory() {
