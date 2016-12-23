@@ -34,6 +34,7 @@ public class ProducerConfig {
         return queue;
     }
 
+
     @Bean
     TopicExchange exchange(RabbitAdmin rabbitAdmin) {
         TopicExchange topicExchange = new TopicExchange("exchange");
@@ -43,17 +44,18 @@ public class ProducerConfig {
 
     @Bean
     Binding bindingExchangeFoo(Queue queueFoo, TopicExchange exchange,RabbitAdmin rabbitAdmin) {
-        Binding binding = BindingBuilder.bind(queueFoo).to(exchange).with("queue.foo");
+        Binding binding = BindingBuilder.bind(queueFoo).to(exchange).with("#.foo");
         rabbitAdmin.declareBinding(binding);
         return binding;
     }
 
     @Bean
     Binding bindingExchangeBar(Queue queueBar, TopicExchange exchange,RabbitAdmin rabbitAdmin) {
-        Binding binding = BindingBuilder.bind(queueBar).to(exchange).with("queue.bar");
+        Binding binding = BindingBuilder.bind(queueBar).to(exchange).with("#.bar");
         rabbitAdmin.declareBinding(binding);
         return binding;
     }
+
 
 
 /**

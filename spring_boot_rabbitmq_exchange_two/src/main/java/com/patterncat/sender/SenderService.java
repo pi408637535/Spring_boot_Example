@@ -2,6 +2,7 @@ package com.patterncat.sender;
 
 import com.patterncat.model.Bar;
 import com.patterncat.model.Foo;
+import com.patterncat.model.Message;
 import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -20,11 +21,11 @@ public class SenderService {
 
     @Scheduled(fixedRate = 1000)
     public void sendFoo2Rabbitmq() {
-        this.rabbitMessagingTemplate.convertAndSend("exchange", "queue.foo", new Foo("foo"));
+        this.rabbitMessagingTemplate.convertAndSend("exchange", "queue.foo", new Foo("foo000"));
     }
 
-    @Scheduled(fixedRate = 6000)
+    @Scheduled(fixedRate = 3000)
     public void sendBar2Rabbitmq(){
-        this.rabbitMessagingTemplate.convertAndSend("exchange", "queue.bar", new Bar(1));
+        this.rabbitMessagingTemplate.convertAndSend("exchange", "queue.bar", new Bar(100000));
     }
 }

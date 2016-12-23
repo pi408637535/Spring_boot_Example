@@ -1,17 +1,8 @@
 package com.patterncat;
 
-import com.patterncat.model.Bar;
-import com.patterncat.model.Foo;
-import com.patterncat.receiver.ReceiverService;
-import com.patterncat.sender.SenderService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-
-import java.util.Random;
-import java.util.UUID;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.patterncat")

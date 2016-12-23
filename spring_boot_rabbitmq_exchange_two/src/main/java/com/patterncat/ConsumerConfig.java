@@ -1,6 +1,6 @@
 package com.patterncat;
 
-import com.patterncat.receiver.ReceiverService;
+import com.patterncat.receiver.ReceiverServiceFoo;
 import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
@@ -8,9 +8,7 @@ import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFacto
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory;
@@ -23,7 +21,7 @@ import org.springframework.messaging.handler.annotation.support.DefaultMessageHa
 public class ConsumerConfig implements RabbitListenerConfigurer {
 
     @Autowired
-    ReceiverService receiverService;
+    ReceiverServiceFoo receiverService;
 
     @Bean
     public DefaultMessageHandlerMethodFactory myHandlerMethodFactory() {
@@ -36,7 +34,7 @@ public class ConsumerConfig implements RabbitListenerConfigurer {
     public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
-        factory.setPrefetchCount(5);
+        factory.setPrefetchCount(1);
         factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
         return factory;
     }
