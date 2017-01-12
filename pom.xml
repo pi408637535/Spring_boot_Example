@@ -29,6 +29,7 @@
         <module>spring_rabbit_demo</module>
         <module>spring_boot_rabbitmq</module>
         <module>spring_boot_rabbitmq_exchange</module>
+        <module>spring_boot_email</module>
     </modules>
     <packaging>pom</packaging>
 
