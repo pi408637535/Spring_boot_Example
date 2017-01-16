@@ -27,7 +27,7 @@ public class HelloController {
         return city.toString();
     }
 
-    @RequestMapping("/page")
+   /* @RequestMapping("/page")
     public List<City> list(){
         City city = new City();
         city.setName("%2");
@@ -39,6 +39,6 @@ public class HelloController {
    public Long createCity(){
         City city = new City("f", "f", "f");
         return cityService.createCity(city);
-    }
+    }*/
 
 }

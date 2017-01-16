@@ -1,0 +1,3 @@
+spring_boot_mybatis_annotation
+  由于自己在开发中，常常使用mybatis，而原声的mybatis并没有开启太智能的注解开发，这个这个mode的开发就是为了解决这个问题。
+  branch mybatis_annotation 就是为了这个目的而开展.

@@ -9,7 +9,6 @@ public class City implements Serializable{
 
     private String state;
 
-    private String country;
 
     public Long getId() {
         return id;
@@ -35,13 +34,6 @@ public class City implements Serializable{
         this.state = state == null ? null : state.trim();
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country == null ? null : country.trim();
-    }
 
     public City()
     {
@@ -51,6 +43,5 @@ public class City implements Serializable{
     {
         this.name = name;
         this.state = state;
-        this.country = country;
     }
 }

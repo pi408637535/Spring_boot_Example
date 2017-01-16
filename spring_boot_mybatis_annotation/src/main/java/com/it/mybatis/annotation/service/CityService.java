@@ -14,6 +14,6 @@ import java.util.List;
 public interface CityService {
     City getCityByParamyKey(Long id);
 
-    List<City> getCityPage(City city);
-    Long createCity(City city);
+/*    List<City> getCityPage(City city);
+    Long createCity(City city);*/
 }
