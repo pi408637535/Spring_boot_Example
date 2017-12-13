@@ -23,6 +23,10 @@
         <module>Spring_boot_slf4j</module>
         <module>spring_recursion</module>
         <module>spring_boot_inspect</module>
+        <module>spring_boot_timer</module>
+        <module>spring_boot_actuator</module>
+        <module>spring_boot_spark</module>
+        <module>spring_boot_elastic</module>
     </modules>
     <packaging>pom</packaging>
 
