@@ -2,15 +2,18 @@ package org.gradle.sample
 
 import org.ansj.domain.Term
 import org.ansj.splitWord.analysis.ToAnalysis
-import org.apache.spark.mllib.classification.NaiveBayes
+import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
 import org.apache.spark.mllib.feature.{HashingTF, IDF}
-import org.apache.spark.mllib.recommendation.{ALS, Rating}
+import org.apache.spark.mllib.recommendation.{ALS, MatrixFactorizationModel, Rating}
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.Dataset
 
 
 object MovieRatings extends InitSpark {
+
+	var naiveModelNaive:NaiveBayesModel = _
+	var hashingTfGlobal:HashingTF = _
 
 	def CalculateAverageRating() = {
 		import spark.implicits._
@@ -48,6 +51,7 @@ object MovieRatings extends InitSpark {
 		val numIterations = 10
 		val model = ALS.train(ratings, rank, numIterations, 0.01)
 
+		//naiveModelNaive = model
 		//    persons.show(2)
 		//    val averageAge = persons.agg(avg("age"))
 		//                     .first.get(0).asInstanceOf[Double]
@@ -178,6 +182,7 @@ object MovieRatings extends InitSpark {
 		  )
 		//tf-idf
 		val hashingTF = new HashingTF(Math.pow(2, 18).toInt)
+		hashingTfGlobal = hashingTF
 		//计算TF
 		val newSTF = trainRdd.map {
 			case (num, seq) =>
@@ -194,10 +199,24 @@ object MovieRatings extends InitSpark {
 
 		val Array(training, test) = dataRdd.randomSplit(Array(0.8, 0.2))
 		val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+	//	model.save(sc, "/wode/ml/model")
 
+		naiveModelNaive = model
 		val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
 		val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
 		println(accuracy)
 	}
 
+	def runClassify(text:String): Double = {
+
+		val stringData = text
+		val data = splitWordToSeq(stringData)
+		
+		val tfs = hashingTfGlobal.transform(data)
+		val rddVector = sc.parallelize(Seq(tfs))
+		val idf = new IDF().fit(rddVector)
+
+		val tf_idf= idf.transform(tfs)
+		naiveModelNaive.predict(tf_idf)
+	}
 }

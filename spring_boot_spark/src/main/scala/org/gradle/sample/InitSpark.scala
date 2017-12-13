@@ -7,6 +7,7 @@ trait InitSpark {
   val spark: SparkSession = SparkSession.builder()
                             .appName("Spark example")
                             .master("local[*]")
+                            .config("spark.sql.warehouse.dir","hdfs:///192.168.152.138:9000")
                             .getOrCreate()
 
   val sc = spark.sparkContext
