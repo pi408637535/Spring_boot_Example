@@ -27,6 +27,7 @@
         <module>spring_boot_actuator</module>
         <module>spring_boot_spark</module>
         <module>spring_boot_elastic</module>
+        <module>SpringBoot_TkMybatis</module>
     </modules>
     <packaging>pom</packaging>
 

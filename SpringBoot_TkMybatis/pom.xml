@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.github.biezhi</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.0.31</version>
@@ -21,11 +26,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>6.0.5</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.biezhi</groupId>
-            <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,11 +44,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
     </dependencies>
 
 
     <build>
-        <finalName>es-search</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -65,7 +66,14 @@
             <!--用于解决spring boot默认占位符：@...@变成${}-->
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
                 <configuration>
+                   <!-- <resources>
+                        <resource>
+                            <directory>src/non-packaged-resources</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </resources>-->
                     <encoding>utf-8</encoding>
                     <useDefaultDelimiters>true</useDefaultDelimiters>
                 </configuration>
@@ -75,9 +83,6 @@
             <!--使用Maven来对项目资源进行变量替换-->
             <resource>
                 <directory>src/main/resources</directory>
-                <includes>
-                    <include>*.yml</include>
-                </includes>
                 <filtering>true</filtering>
             </resource>
         </resources>
@@ -94,7 +99,6 @@
                 <jdbc.username>root</jdbc.username>
                 <jdbc.password>test@wode2017social</jdbc.password>
                 <logback.appender>CONSOLE</logback.appender>
-
             </properties>
         </profile>
     </profiles>

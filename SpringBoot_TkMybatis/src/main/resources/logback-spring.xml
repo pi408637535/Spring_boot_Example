@@ -52,6 +52,6 @@
     </appender>
 
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref= "${logback.appender}" />
     </root>
 </configuration>
