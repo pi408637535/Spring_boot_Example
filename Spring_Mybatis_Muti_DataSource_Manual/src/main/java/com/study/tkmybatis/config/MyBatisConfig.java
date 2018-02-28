@@ -37,6 +37,7 @@ public class MyBatisConfig {
         props.put("url", env.getProperty("jdbc.url"));
         props.put("username", env.getProperty("jdbc.username"));
         props.put("password", env.getProperty("jdbc.password"));
+
         return DruidDataSourceFactory.createDataSource(props);
     }
 

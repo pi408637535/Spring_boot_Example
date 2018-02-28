@@ -44,6 +44,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+
 
     </dependencies>
 
@@ -95,7 +105,7 @@
             <properties>
                 <build.profile.id>local</build.profile.id>
                 <db.driver>com.mysql.jdbc.Driver</db.driver>
-                <jdbc.url>jdbc:mysql://118.244.212.178:5306/search?useUnicode=true&amp;characterEncoding=utf-8</jdbc.url>
+                <jdbc.url>jdbc:mysql://*/search?useUnicode=true&amp;characterEncoding=utf-8</jdbc.url>
                 <jdbc.username>root</jdbc.username>
                 <jdbc.password>test@wode2017social</jdbc.password>
                 <logback.appender>CONSOLE</logback.appender>
