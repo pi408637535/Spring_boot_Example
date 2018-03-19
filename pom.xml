@@ -28,6 +28,8 @@
         <module>spring_boot_spark</module>
         <module>spring_boot_elastic</module>
         <module>SpringBoot_TkMybatis</module>
+        <module>StockEmotion</module>
+        <module>Spring_Mybatis_Muti_DataSource_Manual</module>
     </modules>
     <packaging>pom</packaging>
 

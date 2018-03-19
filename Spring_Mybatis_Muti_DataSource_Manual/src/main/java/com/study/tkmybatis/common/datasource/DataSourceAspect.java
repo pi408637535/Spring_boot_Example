@@ -13,14 +13,15 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class DataSourceAspect {
-    @Before("execution(* com.xxx.firstboot.dao.*.*(..))")
+    @Before("execution(* com.study.tkmybatis.dao.*.*(..))")
     public void setDataSourceKey(JoinPoint point){
         //连接点所属的类实例是ShopDao
         String methodName = point.getSignature().getName();
+        String content = point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName();
 
         if (isSlave(methodName)) {
             // 标记为读库
-            DatabaseContextHolder.setDatabaseType(DatabaseType.pay3);
+            DatabaseContextHolder.setDatabaseType(DatabaseType.pay4);
         } else {
             // 标记为写库
             DatabaseContextHolder.setDatabaseType(DatabaseType.pay2);

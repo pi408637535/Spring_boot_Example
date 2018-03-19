@@ -8,5 +8,5 @@ package com.study.tkmybatis.common.datasource;
  * 2）DatabaseType中的变量名称就是数据库的名称
  */
 public enum DatabaseType {
-    pay2,pay3
+    pay2,pay4
 }

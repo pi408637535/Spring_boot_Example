@@ -1,4 +1,4 @@
-package com.study.tkmybatis.config;
+package com.wode.stock.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Created by piguanghua on 1/18/18.
- * 多数据源中配置在别的地方
  */
 @Configuration
 @EnableConfigurationProperties(DataSourceProperties.class)

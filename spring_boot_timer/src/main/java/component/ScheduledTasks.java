@@ -27,7 +27,7 @@ public class ScheduledTasks {
         System.out.println ("Scheduling Tasks Examples By Cron: The time is now " + dateFormat ().format (new Date ()));
     }*/
 
-    @Scheduled(cron = "*/3 * *  * * * ")
+    @Scheduled(cron = "0 0/1 *  * * * ")
     public void reportCurrentByCron(){
         long startTime = System.currentTimeMillis();
         System.out.println ("Scheduling Tasks Examples By Cron: The time is now " + dateFormat ().format (new Date ()));

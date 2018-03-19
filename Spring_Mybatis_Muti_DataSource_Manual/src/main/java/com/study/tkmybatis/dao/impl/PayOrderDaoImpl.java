@@ -21,7 +21,7 @@ public class PayOrderDaoImpl extends BaseDaoImpl<PayOrder> implements PayOrderDa
 
     @Override
     public Mapper<PayOrder> getMapper() {
-        DatabaseContextHolder.setDatabaseType(DatabaseType.pay3);
+        DatabaseContextHolder.setDatabaseType(DatabaseType.pay4);
         return payOrderMapper;
     }
 }
