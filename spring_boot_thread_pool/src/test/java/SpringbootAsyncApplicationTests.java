@@ -17,13 +17,5 @@ public class SpringbootAsyncApplicationTests {
     @Autowired
     private AsyncTask asyncTask;
 
-    @Test
-    public void AsyncTaskTest() throws InterruptedException, ExecutionException {
 
-        for (int i = 0; i < 100; i++) {
-            asyncTask.doTask1(i);
-        }
-
-        System.out.println("All tasks finished.");
-    }
 }
