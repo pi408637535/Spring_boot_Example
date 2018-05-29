@@ -33,6 +33,7 @@
         <module>spring_boot_thread_pool</module>
         <module>spring_boot_async</module>
         <module>spring_boot_exit</module>
+        <module>Spring_boot_kafka</module>
     </modules>
     <packaging>pom</packaging>
 
