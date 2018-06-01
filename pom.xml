@@ -34,6 +34,7 @@
         <module>spring_boot_async</module>
         <module>spring_boot_exit</module>
         <module>Spring_boot_kafka</module>
+        <module>SpringBoot_Event_Bus</module>
     </modules>
     <packaging>pom</packaging>
 
