@@ -15,7 +15,7 @@ import java.util.Set;
  * Hello world!
  */
 @SpringBootApplication
-@ComponentScan(basePackages = "com.stockemtion.stockdata")
+@ComponentScan(basePackages = "com.sunney")
 public class Application {
 
 
