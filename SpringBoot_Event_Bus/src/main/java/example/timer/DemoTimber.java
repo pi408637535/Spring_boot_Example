@@ -41,7 +41,7 @@ public class DemoTimber {
 
     @Scheduled(cron = "0/1 * *  * * * ")
     public void reportCurrentByCron(){
-       // this.multiEventBusSender.sendEvents();
+        this.multiEventBusSender.sendEvents();
        // this.simpleEventSender.sendEvents();
       //  this.simpleAsyncEventSender.sendEvents();
         this.eventBusSupportSender.sendEvents();

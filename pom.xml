@@ -35,6 +35,9 @@
         <module>spring_boot_exit</module>
         <module>Spring_boot_kafka</module>
         <module>SpringBoot_Event_Bus</module>
+        <module>spring_boot_motan_server</module>
+        <module>spring_boot_motan_client</module>
+        <module>spring_boot_motan_common</module>
     </modules>
     <packaging>pom</packaging>
 

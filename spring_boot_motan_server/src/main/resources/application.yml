@@ -1,0 +1,26 @@
+study :
+  server:
+    motan :
+      #注册中心配置
+      registry :
+          regProtocol : zookeeper #注册中心协议
+          address : 123.196.116.201:2181,123.196.116.201:2182,123.196.116.201:2183 #注册中心地址
+          requestTimeout : 1000 #注册中心连接超时时间(毫秒)
+          connectTimeout : 3000 #注册中心请求超时时间(毫秒)
+      #协议配置
+      protocol :
+          name : motan #协议名称
+          minWorkerThread : 20 #最小工作pool线程数
+          maxWorkerThread : 50 #最大工作pool线程数
+          filter : statistic
+      #指定需要解析的包名
+      annotation :
+          package : com.weibo.motan.demo.springboot.service
+      #服务端配置
+      server :
+          export :  'studyMotan:9996' #服务端口
+          group : fallsea
+          registry : studyRegistryConfig  #bean名字
+
+server:
+    port: 8019
