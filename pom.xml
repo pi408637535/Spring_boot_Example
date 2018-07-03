@@ -38,6 +38,9 @@
         <module>spring_boot_motan_server</module>
         <module>spring_boot_motan_client</module>
         <module>spring_boot_motan_common</module>
+        <module>spring_boot_admin_server</module>
+        <module>spring_boot_admin_eureka_server</module>
+        <module>spring_boot_admin_order_client</module>
     </modules>
     <packaging>pom</packaging>
 
