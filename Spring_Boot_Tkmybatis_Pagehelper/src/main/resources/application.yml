@@ -14,6 +14,7 @@ spring:
       initial-size: 1
       min-idle: 3
       max-wait: 60000
+      filters:  stat
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
       validation-query: SELECT 'x' FROM DUAL
